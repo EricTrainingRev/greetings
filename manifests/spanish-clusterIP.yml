@@ -9,5 +9,5 @@ spec: # technial specifications of the service
   ports: 
     - name: http
     - protocol: TCP
-      port: 80 # 80 is the standard http port 
-      targetPort: 8080 # what port on the pod does this service listen to
+    - port: 80 # 80 is the standard http port 
+    - targetPort: 8080 # what port on the pod does this service listen to

@@ -19,5 +19,5 @@ spec: # technial specifications of the deployment
       containers:
         - name: english-greeter # arbitrary name
           image: esuminski/english:latest # tells kubernetes the image is located in the esuminski repository
-          port:
+          ports:
           - containerPort: 8080 # port number the app in the container listens on
