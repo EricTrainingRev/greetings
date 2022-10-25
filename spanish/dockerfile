@@ -1,0 +1,9 @@
+FROM maven:3.8.6-openjdk-8 as builder
+COPY src/ src/
+COPY pom.xml pom.xml
+RUN mvn package -Dmaven.test.skip=true
+
+# alpine or slim is a good choice for a production environment
+FROM java:8u92-jre-alpine as runner
+COPY --from=builder target/spanish-0.0.1.jar spanish.jar
+ENTRYPOINT [ "java","-jar","spanish.jar" ]

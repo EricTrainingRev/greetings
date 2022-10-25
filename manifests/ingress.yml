@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: language-ingress
+  annotations: # Any object can use annotations. These will affect the resource/object in certain ways
+    kubernetes.io/ingress.class: nginx # this is provided by helm?, see https://github.com/kubernetes/ingress-nginx/tree/main/charts/ingress-nginx
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: $1
+spec: 
+  rules:
+  - http:
+      paths:
+        - path: /english(.+) # regular expression of nginx 
+          pathType: Prefix
+          backend:
+            service:
+              name: english-service
+              port:
+                number: 80 # standard http port
+        - path: /spanish(.+)
+          pathType: Prefix
+          backend:
+            service:
+              name: spanish-service 
+              port:
+                number: 80 # standard http port
