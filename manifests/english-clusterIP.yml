@@ -6,8 +6,8 @@ spec: # technial specifications of the service
   type: ClusterIP # Type of service are the other types LoadBalancer, ClusterIP
   selector: # Selectors specify what pods does this service expose
     app: english-app # This selects the pod we created, defined by either the pod or the deployment manifest
-  port: 
+  ports: 
     - name: http
     - protocol: TCP
-    - port: 80 # 80 is the standard http port 
-    - targetPort: 8080 # what port on the pod does this service listen to
+      port: 80 # 80 is the standard http port 
+      targetPort: 8080 # what port on the pod does this service listen to
