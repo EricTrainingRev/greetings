@@ -1,23 +1,66 @@
-apiVersion: apps/v1 # version of kubernetes you are writing
-kind: Deployment # type of kubernetes object you are creating
-metadata: # information about the deployment for kubernetes
-  name: spanish-deployment # arbitraty name
-spec: # technial specifications of the deployment
-  replicas: 1 # How many pods do we want for this deployment
-  selector: # select which pods this deployment manages
+# apiVersion: apps/v1 # version of kubernetes you are writing
+# kind: Deployment # type of kubernetes object you are creating
+# metadata: # information about the deployment for kubernetes
+#   name: spanish-deployment # arbitraty name
+# spec: # technial specifications of the deployment
+#   replicas: 1 # How many pods do we want for this deployment
+#   selector: # select which pods this deployment manages
+#     matchLabels:
+#       app: spanish-app # this should match the label in the pod-manifest
+
+# # note: the content below is a copy of the pod-manifest.yml information
+
+#   template: # You can define the pod in the deployment.yaml which is more common
+#     metadata: # information about the pod for kubernetes
+#       labels: # the labels are just for marking up and selecting pods
+#         app: spanish-app
+#         # can do more: they are really just key value pairs you can create
+#     spec: # technical specifications of the pod
+#       containers:
+#         - name: spanish-greeter # arbitrary name
+#           image: esuminski/spanish:latest
+#           ports:
+#           - containerPort: 8080 # port number the app in the container listens on
+
+apiVersion: "apps/v1"
+kind: "Deployment"
+metadata:
+  name: "spanish-greeter"
+  namespace: "default"
+  labels:
+    app: "spanish-greeter"
+spec:
+  replicas: 3
+  selector:
     matchLabels:
-      app: spanish-app # this should match the label in the pod-manifest
-
-# note: the content below is a copy of the pod-manifest.yml information
-
-  template: # You can define the pod in the deployment.yaml which is more common
-    metadata: # information about the pod for kubernetes
-      labels: # the labels are just for marking up and selecting pods
-        app: spanish-app
-        # can do more: they are really just key value pairs you can create
-    spec: # technical specifications of the pod
+      app: "spanish-greeter"
+  template:
+    metadata:
+      labels:
+        app: "spanish-greeter"
+    spec:
       containers:
-        - name: spanish-greeter # arbitrary name
-          image: esuminski/spanish:latest
-          ports:
-          - containerPort: 8080 # port number the app in the container listens on
+      - name: "spanish-app"
+        image: "esuminski/spanish:latest"
+# -----------------------------------------------
+# apiVersion: "autoscaling/v2"
+# kind: "HorizontalPodAutoscaler"
+# metadata:
+#   name: "spanish-greeter-hpa-i6ew"
+#   namespace: "default"
+#   labels:
+#     app: "spanish-greeter"
+# spec:
+#   scaleTargetRef:
+#     kind: "Deployment"
+#     name: "spanish-greeter"
+#     apiVersion: "apps/v1"
+#   minReplicas: 1
+#   maxReplicas: 5
+#   metrics:
+#   - type: "Resource"
+#     resource:
+#       name: "cpu"
+#       target:
+#         type: "Utilization"
+#         averageUtilization: 80

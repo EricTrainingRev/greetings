@@ -14,13 +14,13 @@ spec:
           pathType: Prefix
           backend:
             service:
-              name: english-service
+              name: english-greeter-service
               port:
                 number: 80 # standard http port
         - path: /spanish(.+)
           pathType: Prefix
           backend:
             service:
-              name: spanish-service 
+              name: spanish-greeter-service 
               port:
                 number: 80 # standard http port
