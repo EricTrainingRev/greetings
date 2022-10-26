@@ -40,9 +40,11 @@ spec:
       labels:
         app: "english-greeter"
     spec:
+      terminationGracePeriodSeconds: 30
       containers:
       - name: "english-app"
         image: "esuminski/english:latest"
+        imagePullPolicy: "Always"
 # ---------------------------------------------
 # # if we want horizontal scaling
 # apiVersion: "autoscaling/v2"
