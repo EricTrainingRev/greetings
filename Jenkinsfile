@@ -11,10 +11,13 @@ pipeline {
 
     stages {
         stage("build english image"){
-            node{
-                sh 'cd english'
-                docker.build 'esuminski/english:latest'
+            steps{
+                node{
+                    sh 'cd english'
+                    docker.build 'esuminski/english:latest'
+                }                
             }
+
         }
     }
 }
