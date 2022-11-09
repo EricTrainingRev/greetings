@@ -12,10 +12,11 @@ pipeline {
     stages {
         stage("build english image"){
             steps{
-                // node("build"){
+                echo "building english image"
+                script{
                     sh 'cd english'
                     def myImage = docker.build 'esuminski/english:latest'
-                // }                
+                }                
             }
 
         }
