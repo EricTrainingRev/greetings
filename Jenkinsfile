@@ -14,7 +14,7 @@ pipeline {
             steps{
                 node("build"){
                     sh 'cd english'
-                    docker.build 'esuminski/english:latest'
+                    def my-image = docker.build 'esuminski/english:latest'
                 }                
             }
 
