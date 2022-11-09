@@ -13,7 +13,7 @@ pipeline {
         stage("build english image"){
             steps{
                 sh 'cd english'
-                sh "docker build -t esuminski/english:latest ."
+                docker.build 'esuminski/english:latest'
             }
         }
     }
