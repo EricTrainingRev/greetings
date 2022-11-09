@@ -68,17 +68,19 @@ pipeline {
             }
         }
         stage('Build Spanish Greeter'){
-            script{
+            steps{
                 sh "cd spanish"
                 spanish_app = docker.build("latest")
             }
         }
         stage("Deploy"){
-            docker.withRegsitry(english_registry,""){
-                english_app.push("latest")
-            }
-            docker.withRegistry(spanish_registry, ""){
-                spanish_app.push("latest")
+            steps{
+                docker.withRegsitry(english_registry,""){
+                    english_app.push("latest")
+                }
+                docker.withRegistry(spanish_registry, ""){
+                    spanish_app.push("latest")
+                }                
             }
         }
     }
