@@ -10,9 +10,10 @@ pipeline {
     }
 
     stages {
-        stage("Please Work"){
+        stage("build english image"){
             steps{
-                sh 'echo $english_registry'
+                sh 'cd english'
+                sh "docker build -t latest ."
             }
         }
     }
