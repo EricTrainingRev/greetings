@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage("Please Work"){
             steps{
-                sh 'echo "Hello world!"'
+                sh 'echo $english_registry'
             }
         }
     }
