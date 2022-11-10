@@ -23,7 +23,8 @@ pipeline {
                     // script{
                     //     dockerImage = docker.build(ENGLISH_REGISTRY + ':latest')
                     // }
-                    sh 'ls'
+                    sh 'cd ./english'
+                    docker.build(ENGLISH_REGISTRY + ':latest')
                 }
                                 
             }
