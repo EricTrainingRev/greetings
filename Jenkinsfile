@@ -19,12 +19,8 @@ pipeline {
             steps{
                 container("docker"){
                     echo "building english image"
-                    script{
-                        dockerImage = docker.build(ENGLISH_REGISTRY + ':latest', 'english') // this looks in /home/jenkins/agent/workspace/practice for Dockerfile
-                    }
-                    // dir("english"){
-                    //     sh 'docker build -t ' + ENGLISH_REGISTRY + ':latest .'
-                    // }                    
+                    // this tells this one command below to send a tcp request instead of the default socket file
+                    sh 'DOCKER_HOST=tcp://localhost:2375 docker build -t ' + ENGLISH_REGISTRY + ':latest english'                
                 }
                                 
             }
