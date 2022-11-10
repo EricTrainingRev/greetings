@@ -23,7 +23,7 @@ pipeline {
                     // script{
                     //     dockerImage = docker.build(ENGLISH_REGISTRY + ':latest') this looks in /home/jenkins/agent/workspace/practice for Dockerfile
                     // }
-                    dir("/english"){
+                    dir("english"){
                         sh 'docker build -t ' + ENGLISH_REGISTRY + ':latest .'
                     }                    
                 }
