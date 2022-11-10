@@ -21,7 +21,7 @@ pipeline {
                     echo "building english image"
                     sh 'cd english'
                     script{
-                        dockerImage = docker.build('$ENGLISH_REGISTRY:latest')
+                        dockerImage = docker.build('${ENGLISH_REGISTRY}:latest')
                     }
                 }
                                 
