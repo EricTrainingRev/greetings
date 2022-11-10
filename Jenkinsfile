@@ -20,7 +20,7 @@ pipeline {
                 container("docker"){
                     echo "building english image"
                     // this tells this one command below to send a tcp request instead of the default socket file
-                    sh 'DOCKER_HOST=tcp://localhost:2375 docker build -t ' + ENGLISH_REGISTRY + ':latest english'                
+                    sh 'docker build -t ' + ENGLISH_REGISTRY + ':latest english'                
                 }
                                 
             }
