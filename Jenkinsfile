@@ -8,7 +8,7 @@ pipeline {
     }
 
     environment{
-        english_registry='esuminski/english'
+        ENGLISH_REGISTRY='esuminski/english'
         spanish_registry='esuminski/spanish'
         dockerHubCreds='dockerhub'
         dockerImage=''
@@ -17,11 +17,14 @@ pipeline {
     stages {
         stage("build english image"){
             steps{
-                script{
+                container("docker"){
                     echo "building english image"
                     sh 'cd english'
-                    def myImage = docker.build 'esuminski/english:latest'
-                }                
+                    script{
+                        dockerImage = docker.build('$ENGLISH_REGISTRY:latest')
+                    }
+                }
+                                
             }
 
         }
