@@ -19,7 +19,7 @@ pipeline {
             steps{
                 container("docker"){
                     echo "building english image"
-                    sh 'cd english'
+                    sh 'cd /greetings/english'
                     script{
                         dockerImage = docker.build(ENGLISH_REGISTRY + ':latest')
                     }
