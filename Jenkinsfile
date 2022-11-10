@@ -15,19 +15,19 @@ pipeline {
     }
 
     stages {
-        dir('/greetings/english'){
-            stage("build english image"){
-                steps{
-                    container("docker"){
-                        echo "building english image"
-                        sh 'cd /greetings/english'
-                        script{
-                            dockerImage = docker.build(ENGLISH_REGISTRY + ':latest')
-                        }
-                    }
-                                    
+        stage("build english image"){
+            steps{
+                container("docker"){
+                    // echo "building english image"
+                    // sh 'cd english'
+                    // script{
+                    //     dockerImage = docker.build(ENGLISH_REGISTRY + ':latest')
+                    // }
+                    sh 'ls'
                 }
-            }            
+                                
+            }
+
         }
     }
 }
