@@ -1,5 +1,19 @@
-
 controller:
+  installPlugins:
+  - kubernetes:3600.v144b_cd192ca_a_
+  - workflow-aggregator:581.v0c46fa_697ffd
+  - git:4.11.3
+  - configuration-as-code:1429.v09b_044a_c93de
+  - docker-workflow:1.29
+  - workflow-aggregator:590.v6a_d052e5a_a_b_5
+  # - pipeline-aws:1.43
+  # - gradle:1.39.4
+  - github-branch-source:1677.v731f745ea_0cf
+  - docker-plugin:1.2.9
+  - pipeline-stage-view:2.24
+  - timestamper:1.18
+  JCasC:
+    defaultConfig: true
   adminPassword: "password"
   jenkinsUriPrefix: "/jenkins"
   ingress:
@@ -9,5 +23,29 @@ controller:
     apiVersion: networking.k8s.io/v1
     ingressClassName: nginx
     path: "/jenkins"
-    hostName:
-    tls:
+agent:
+  podTemplates:
+    greeting: |
+        - name: greeting
+          label: jenkins-greeting
+          serviceAccount: jenkins
+          containers:
+          # - name: sonar
+          #   image: sonarsource/sonar-scanner-cli:latest
+          #   command: "/bin/sh -c"
+          #   args: "cat"
+          #   ttyEnabled: true
+          - name: docker
+            image: docker:20-dind
+            privileged: true
+          # - name: kubectl
+          #   image: jshimko/kube-tools-aws:3.8.1
+          #   privileged: true
+          #   command: "/bin/sh -c"
+          #   args: "cat"
+          #   ttyEnabled: true
+          # - name: jdk
+          #   image: gradle:jdk11
+          #   command: "/bin/sh -c"
+          #   args: "cat"
+          #   ttyEnabled: true

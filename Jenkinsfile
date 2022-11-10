@@ -1,6 +1,10 @@
 pipeline {
 
-    agent any
+    // agent any
+    agent {
+        kubernetes {
+            inheritFrom "greeter"
+        }
 
     environment{
         english_registry='esuminski/english'
@@ -12,13 +16,14 @@ pipeline {
     stages {
         stage("build english image"){
             steps{
-                echo "building english image"
                 script{
+                    echo "building english image"
                     sh 'cd english'
                     def myImage = docker.build 'esuminski/english:latest'
                 }                
             }
 
+            }
         }
     }
 }
