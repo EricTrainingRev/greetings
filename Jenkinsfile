@@ -21,12 +21,10 @@ pipeline {
                     // echo "building english image"
                     // sh 'cd english'
                     // script{
-                    //     dockerImage = docker.build(ENGLISH_REGISTRY + ':latest')
+                    //     dockerImage = docker.build(ENGLISH_REGISTRY + ':latest') this looks in /home/jenkins/agent/workspace/practice for Dockerfile
                     // }
                     sh 'cd ./english'
-                    script{
-                        docker.build(ENGLISH_REGISTRY + ':latest')
-                    }
+                    sh 'docker build -t ' + ENGLISH_REGISTRY + ':latest .'
                 }
                                 
             }
