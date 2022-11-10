@@ -41,14 +41,12 @@ pipeline {
             steps{
                 container("docker"){
                     script{
-                        docker.withRegistry("","dockerhub"){
-                            E_IMAGE.push()
-                            S_IMAGE.push()
+                        E_IMAGE.push()
+                        S_IMAGE.push()
                         }                        
                     }
 
                 }
             }
         }
-    }
 }
