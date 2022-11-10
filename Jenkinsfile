@@ -24,7 +24,9 @@ pipeline {
                     //     dockerImage = docker.build(ENGLISH_REGISTRY + ':latest')
                     // }
                     sh 'cd ./english'
-                    docker.build(ENGLISH_REGISTRY + ':latest')
+                    script{
+                        docker.build(ENGLISH_REGISTRY + ':latest')
+                    }
                 }
                                 
             }
