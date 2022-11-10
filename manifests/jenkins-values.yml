@@ -26,6 +26,7 @@ controller:
 agent:
   podTemplates:
     # will need to add more containers for kubectl commands and quality checks
+    # dind version 20+ is broken or something, might check if version 19 works, can check 20 before batch starts
     greeting: |
         - name: greeting
           label: jenkins-greeting
