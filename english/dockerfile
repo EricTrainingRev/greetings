@@ -1,8 +1,0 @@
-FROM maven:3.8.6-openjdk-8 as builder
-COPY src/ src/
-COPY pom.xml pom.xml
-RUN mvn package -Dmaven.test.skip=true
-
-FROM java:8u92-jre-alpine as runner
-COPY --from=builder target/english-0.0.1.jar english.jar
-ENTRYPOINT [ "java","-jar","english.jar" ]
