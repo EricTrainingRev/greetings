@@ -37,6 +37,7 @@ pipeline {
                 }
             }
         }
+        // this stage currently fails
         stage("push images"){
             steps{
                 container("docker"){
