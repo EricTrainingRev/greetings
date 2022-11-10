@@ -31,22 +31,6 @@ agent:
           label: jenkins-greeting
           serviceAccount: jenkins
           containers:
-          # - name: sonar
-          #   image: sonarsource/sonar-scanner-cli:latest
-          #   command: "/bin/sh -c"
-          #   args: "cat"
-          #   ttyEnabled: true
           - name: docker
             image: docker:20-dind
             privileged: true
-          # - name: kubectl
-          #   image: jshimko/kube-tools-aws:3.8.1
-          #   privileged: true
-          #   command: "/bin/sh -c"
-          #   args: "cat"
-          #   ttyEnabled: true
-          # - name: jdk
-          #   image: gradle:jdk11
-          #   command: "/bin/sh -c"
-          #   args: "cat"
-          #   ttyEnabled: true
