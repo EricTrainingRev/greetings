@@ -5,6 +5,7 @@ pipeline {
         kubernetes {
             inheritFrom "greeter"
         }
+    }
 
     environment{
         english_registry='esuminski/english'
@@ -23,7 +24,6 @@ pipeline {
                 }                
             }
 
-            }
         }
     }
 }

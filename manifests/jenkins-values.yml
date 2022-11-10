@@ -1,4 +1,5 @@
 controller:
+  # ideally you would specify plugin versions
   installPlugins:
   - kubernetes
   - workflow-aggregator
