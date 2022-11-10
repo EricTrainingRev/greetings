@@ -32,4 +32,4 @@ agent:
           containers:
           - name: docker
             image: docker:20-dind
-            privileged: true
+            privileged: false
