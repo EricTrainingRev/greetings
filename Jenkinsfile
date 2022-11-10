@@ -3,7 +3,7 @@ pipeline {
     // agent any
     agent {
         kubernetes {
-            inheritFrom "greeter"
+            inheritFrom "greeting"
         }
     }
 
