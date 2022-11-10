@@ -25,6 +25,7 @@ controller:
     path: "/jenkins"
 agent:
   podTemplates:
+    # will need to add more containers for kubectl commands and quality checks
     greeting: |
         - name: greeting
           label: jenkins-greeting
