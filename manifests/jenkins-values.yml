@@ -1,16 +1,16 @@
 controller:
   installPlugins:
-  - kubernetes:3600.v144b_cd192ca_a_
-  - workflow-aggregator:581.v0c46fa_697ffd
-  - git:4.11.3
-  - configuration-as-code:1429.v09b_044a_c93de
-  - docker-workflow:1.29
-  - workflow-aggregator:590.v6a_d052e5a_a_b_5
-  - github-branch-source:1677.v731f745ea_0cf
-  - docker-plugin:1.2.9
-  - pipeline-stage-view:2.24
-  - timestamper:1.18
-  - github:1.36.0
+  - kubernetes
+  - workflow-aggregator
+  - git
+  - configuration-as-code
+  - docker-workflow
+  - workflow-aggregator
+  - github-branch-source
+  - docker-plugin
+  - pipeline-stage-view
+  - timestamper
+  - github
   JCasC:
     defaultConfig: true
   adminPassword: "password"
