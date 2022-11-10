@@ -32,5 +32,5 @@ agent:
           serviceAccount: jenkins
           containers:
           - name: docker
-            image: docker:20-dind
+            image: docker:20.10.16-dind
             privileged: true
