@@ -6,8 +6,6 @@ controller:
   - configuration-as-code:1429.v09b_044a_c93de
   - docker-workflow:1.29
   - workflow-aggregator:590.v6a_d052e5a_a_b_5
-  # - pipeline-aws:1.43
-  # - gradle:1.39.4
   - github-branch-source:1677.v731f745ea_0cf
   - docker-plugin:1.2.9
   - pipeline-stage-view:2.24
