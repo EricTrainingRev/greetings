@@ -14,7 +14,7 @@ controller:
   - github
   JCasC:
     defaultConfig: true
-  adminPassword: "password"
+  # adminPassword: "password"
   jenkinsUriPrefix: "/jenkins"
   ingress:
     enabled: true
