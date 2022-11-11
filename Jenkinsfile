@@ -1,12 +1,9 @@
 pipeline {
-
-    // agent any
     agent {
         kubernetes {
             inheritFrom "greeting"
         }
     }
-
     environment{
         ENGLISH_REGISTRY='esuminski/english'
         E_IMAGE=''
@@ -15,7 +12,6 @@ pipeline {
         dockerHubCreds='dockerhub'
         dockerImage=''
     }
-
     stages {
         stage("build english image"){
             steps{
@@ -23,6 +19,7 @@ pipeline {
                     echo "building english image"
                     script{
                         E_IMAGE = docker.build(ENGLISH_REGISTRY + ":latest", "english")
+                        E_IMAGE.push()
                     }           
                 }                   
             }
@@ -33,21 +30,10 @@ pipeline {
                     echo "building spanish image"
                     script{
                         S_IMAGE = docker.build(SPANISH_REGISTRY + ":latest", "spanish")
-                    }
-                }
-            }
-        }
-        // this stage currently fails
-        stage("push images"){
-            steps{
-                container("docker"){
-                    script{
-                        E_IMAGE.push()
                         S_IMAGE.push()
-                        }                        
                     }
-
                 }
             }
         }
+    }
 }
