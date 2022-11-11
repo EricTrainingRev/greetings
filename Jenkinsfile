@@ -9,7 +9,7 @@ pipeline {
         E_IMAGE=''
         SPANISH_REGISTRY='esuminski/spanish'
         S_IMAGE=''
-        DOCKER_CREDS='69f4809a-fd80-4fab-b4e9-42a18169dc7b'
+        // DOCKER_CREDS='69f4809a-fd80-4fab-b4e9-42a18169dc7b'
         dockerImage=''
     }
     stages {
@@ -19,7 +19,7 @@ pipeline {
                     echo "building english image"
                     script{
                         E_IMAGE = docker.build(ENGLISH_REGISTRY + ":latest", "english")
-                        docker.withRegistry("",DOCKER_CREDS){
+                        docker.withRegistry("", '$docker_creds'){
                             E_IMAGE.push()  
                         }    
                     }
