@@ -19,21 +19,22 @@ pipeline {
                     echo "building english image"
                     script{
                         E_IMAGE = docker.build(ENGLISH_REGISTRY + ":latest", "english")
+                        docker.withRegistry("","docker_credentials")
                         E_IMAGE.push()
                     }           
                 }                   
             }
         }
-        stage("build spanish image"){
-            steps{
-                container("docker"){
-                    echo "building spanish image"
-                    script{
-                        S_IMAGE = docker.build(SPANISH_REGISTRY + ":latest", "spanish")
-                        S_IMAGE.push()
-                    }
-                }
-            }
-        }
+        // stage("build spanish image"){
+        //     steps{
+        //         container("docker"){
+        //             echo "building spanish image"
+        //             script{
+        //                 S_IMAGE = docker.build(SPANISH_REGISTRY + ":latest", "spanish")
+        //                 S_IMAGE.push()
+        //             }
+        //         }
+        //     }
+        // }
     }
 }
