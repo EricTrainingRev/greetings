@@ -19,7 +19,7 @@ pipeline {
                     echo "building english image"
                     script{
                         E_IMAGE = docker.build(ENGLISH_REGISTRY + ":latest", "english")
-                        docker.withRegistry("","docker_credentials"){
+                        docker.withRegistry("","69f4809a-fd80-4fab-b4e9-42a18169dc7b"){
                             E_IMAGE.push()  
                         }    
                     }
