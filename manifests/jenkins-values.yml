@@ -14,6 +14,7 @@ controller:
   - github
   JCasC:
     defaultConfig: true
+  # to get generated password: kubectl get secret [--namespace [namespace]] [release] -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode ; echo
   # adminPassword: "password"
   jenkinsUriPrefix: "/jenkins"
   ingress:
