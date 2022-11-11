@@ -11,25 +11,20 @@ pipeline {
         S_IMAGE=''
     }
     stages {
-        stage('Run gcloud version') {
-            steps {
-                sh 'gcloud --version'           
+        stage("build english image"){
+            steps{
+                container("docker"){
+                    echo "building english image"
+                    script{
+                        E_IMAGE = docker.build(ENGLISH_REGISTRY + ":latest", "english")
+                        // docker_creds set in jenkins credential manager
+                        docker.withRegistry("", 'docker_creds'){
+                            E_IMAGE.push()  
+                        }    
+                    }
+                }                   
             }
         }
-        // stage("build english image"){
-        //     steps{
-        //         container("docker"){
-        //             echo "building english image"
-        //             script{
-        //                 E_IMAGE = docker.build(ENGLISH_REGISTRY + ":latest", "english")
-        //                 // docker_creds set in jenkins credential manager
-        //                 docker.withRegistry("", 'docker_creds'){
-        //                     E_IMAGE.push()  
-        //                 }    
-        //             }
-        //         }                   
-        //     }
-        // }
         // stage("build spanish image"){
         //     steps{
         //         container("docker"){
