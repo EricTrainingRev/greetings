@@ -1,9 +1,11 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: english-greeter-monitor
+  name: englishservice-monitor
+  # namespace: default 
   labels:
     release: prometheus
+    # team: rss-account-service
 spec:
   jobLabel: english-app
   selector:
