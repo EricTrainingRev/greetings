@@ -1,5 +1,5 @@
 apiVersion: monitoring.coreos.com/v1
-kind: ServiceMonitor
+kind: ServiceMonitor # this service is defined by the prometheus helm chart
 metadata:
   name: english-service-monitor
   # namespace: default 
