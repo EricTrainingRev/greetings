@@ -3,7 +3,7 @@ prometheus:
     # serviceMonitorNamespaceSelector: {default}
     serviceMonitorSelector: #{library-service-monitor}
       matchLabels:
-        release: prometheus
+        app: "english-greeter"
 
 nodeExporter:
   enabled: false

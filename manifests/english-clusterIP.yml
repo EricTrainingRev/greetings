@@ -27,3 +27,24 @@ spec:
   selector:
     app: "english-greeter"
   type: "ClusterIP"
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor # this service is defined by the prometheus helm chart
+metadata:
+  name: english-service-monitor
+  # namespace: default 
+  labels:
+    app: "english-greeter"
+    # team: rss-account-service
+spec:
+  jobLabel: english-app
+  selector:
+    matchLabels:
+      app: "english-greeter"
+  namespaceSelector:
+    matchNames: 
+    - default
+  endpoints:
+  - port: http
+    path: /actuator/prometheus
+    interval: 10s
