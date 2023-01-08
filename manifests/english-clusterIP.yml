@@ -29,18 +29,18 @@ spec:
   type: "ClusterIP"
 ---
 apiVersion: monitoring.coreos.com/v1
-kind: ServiceMonitor # this service is defined by the prometheus helm chart
+kind: ServiceMonitor
 metadata:
-  name: english-service-monitor
+  name: library-service-monitor
   # namespace: default 
   labels:
-    app: "english-greeter"
+    release: prometheus
     # team: rss-account-service
 spec:
-  jobLabel: english-app
+  jobLabel: library-app
   selector:
     matchLabels:
-      app: "english-greeter"
+      app: "english-greeter" #THIS IS LOOKING AT THE SERVICE, IT'S A SERVICE MONITOR!
   # namespaceSelector:
   #   matchNames: 
   #   - default
