@@ -45,26 +45,21 @@ spec:
       - name: "english-app"
         image: "esuminski/english:latest"
         imagePullPolicy: "Always"
-# ---------------------------------------------
-# # if we want horizontal scaling
-# apiVersion: "autoscaling/v2"
-# kind: "HorizontalPodAutoscaler"
-# metadata:
-#   name: "english-greeter-hpa-iasj"
-#   namespace: "default"
-#   labels:
-#     app: "english-greeter"
-# spec:
-#   scaleTargetRef:
-#     kind: "Deployment"
-#     name: "english-greeter"
-#     apiVersion: "apps/v1"
-#   minReplicas: 1
-#   maxReplicas: 5
-#   metrics:
-#   - type: "Resource"
-#     resource:
-#       name: "cpu"
-#       target:
-#         type: "Utilization"
-#         averageUtilization: 80
+        volumeMounts:
+          - mountPath: /logs
+            name: logs
+
+      - name: promtail-container
+        image: grafana/promtail
+        args:
+        - -config.file=/etc/promtail/promtail.yml
+        volumeMounts:
+        - name: logs
+          mountPath: /logs
+        - name: promtail-config
+          mountPath: /etc/promtail
+      volumes:
+        - name: logs
+        - name: promtail-config
+          configMap:
+            name: promtail-config
