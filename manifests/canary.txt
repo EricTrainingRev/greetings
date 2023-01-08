@@ -1,0 +1,2 @@
+To deploy canary style you would add another manifest with the updated deployment, deploy it to the cluster,
+check the metrics, then switch over all pods when you confirm the deployment didn't cause issues.

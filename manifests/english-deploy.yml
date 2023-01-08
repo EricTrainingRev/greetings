@@ -43,7 +43,7 @@ spec:
       terminationGracePeriodSeconds: 30
       containers:
       - name: "english-app"
-        image: "esuminski/english:latest"
+        image: "esuminski/english:logging"
         imagePullPolicy: "Always"
         volumeMounts:
           - mountPath: /logs
