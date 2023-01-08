@@ -31,13 +31,13 @@ spec:
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: library-service-monitor
+  name: english-service-monitor
   # namespace: default 
   labels:
     release: prometheus
     # team: rss-account-service
 spec:
-  jobLabel: library-app
+  jobLabel: english-app
   selector:
     matchLabels:
       app: "english-greeter" #THIS IS LOOKING AT THE SERVICE, IT'S A SERVICE MONITOR!
