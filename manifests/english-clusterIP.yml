@@ -25,7 +25,7 @@ metadata:
 spec:
   jobLabel: english-app
   selector:
-    matchLabels:
+    matchLabels: 
       service: english-greeter #THIS IS LOOKING AT THE SERVICE, IT'S A SERVICE MONITOR!
   namespaceSelector:
     matchNames: 

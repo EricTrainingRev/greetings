@@ -1,28 +1,3 @@
-# apiVersion: apps/v1 # version of kubernetes you are writing
-# kind: Deployment # type of kubernetes object you are creating
-# metadata: # information about the deployment for kubernetes
-#   name: english-deployment # arbitraty name
-# spec: # technial specifications of the deployment
-#   replicas: 1 # How many pods do we want for this deployment
-#   selector: # select which pods this deployment manages
-#     matchLabels:
-#       app: english-app # this should match the label in the pod-manifest
-
-# # note: the content below is a copy of the pod-manifest.yml information
-
-#   template: # You can define the pod in the deployment.yaml which is more common
-#     metadata: # information about the pod for kubernetes
-#       labels: # the labels are just for marking up and selecting pods
-#         app: english-app
-#         # can do more: they are really just key value pairs you can create
-#     spec: # technical specifications of the pod
-#       containers:
-#         - name: english-greeter # arbitrary name
-#           image: esuminski/english:latest # tells kubernetes the image is located in the esuminski repository
-#           ports:
-#           - containerPort: 8080 # port number the app in the container listens on
-
-
 apiVersion: "apps/v1"
 kind: "Deployment"
 metadata:
