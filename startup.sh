@@ -9,3 +9,6 @@ helm upgrade --install nginx ingress-nginx/ingress-nginx
 
 # add prometheus and grafana
 helm upgrade --install prometheus prometheus-community/kube-prometheus-stack -f manifests/prometheus-grafana-values.yml
+
+# add service monitor for prometheus to target greeter
+kubectl apply -f english-serviceMonitor.yml
