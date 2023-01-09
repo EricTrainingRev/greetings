@@ -21,6 +21,7 @@ metadata:
   namespace: default 
   labels:
     release: prometheus
+    app: prometheus
     # team: rss-account-service
 spec:
   jobLabel: english-app
