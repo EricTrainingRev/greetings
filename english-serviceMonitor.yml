@@ -6,6 +6,7 @@ metadata:
   labels:
     release: prometheus
     app: prometheus
+    prometheus: prometheus-kube-prometheus-prometheus
     # team: rss-account-service
 spec:
   jobLabel: english-app
