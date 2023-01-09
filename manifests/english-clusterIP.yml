@@ -7,9 +7,33 @@ metadata:
     app: "english-greeter"
 spec:
   ports:
-  - protocol: "TCP"
-    port: 80
+  - name: http
+    protocol: "TCP"
+    port: 8080
     targetPort: 8080
   selector:
     app: "english-greeter"
   type: "ClusterIP"
+  ---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: english-service-monitor
+  # namespace: default 
+  labels:
+    release: prometheus
+    app: prometheus
+    prometheus: prometheus-kube-prometheus-prometheus
+    # team: rss-account-service
+spec:
+  jobLabel: english-app
+  selector:
+    matchLabels: 
+      app: english-greeter #THIS IS LOOKING AT THE SERVICE, IT'S A SERVICE MONITOR!
+  # namespaceSelector:
+  #   matchNames: 
+  #   - default
+  endpoints:
+  - port: http
+    path: /actuator/prometheus
+    interval: 10s
