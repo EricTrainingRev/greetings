@@ -1,9 +1,9 @@
-# prometheus:
-#   prometheusSpec:
-#     # serviceMonitorNamespaceSelector: {default}
-#     serviceMonitorSelector:
-#       matchLabels:
-#         release: prometheus
+prometheus:
+  prometheusSpec:
+    # serviceMonitorNamespaceSelector: {default}
+    serviceMonitorSelector:
+      matchLabels:
+        release: prometheus
 
 
 nodeExporter:
