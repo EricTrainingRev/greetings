@@ -20,9 +20,9 @@ spec:
       - name: "english-app"
         image: "esuminski/english:logging"
         imagePullPolicy: "Always"
-        volumeMounts:
-          - mountPath: /logs
-            name: logs
+        # volumeMounts:
+        #   - mountPath: /logs
+        #     name: logs
 
       # - name: promtail-container
       #   image: grafana/promtail
