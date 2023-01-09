@@ -27,9 +27,9 @@ spec:
   selector:
     matchLabels:
       app: english-greeter #THIS IS LOOKING AT THE SERVICE, IT'S A SERVICE MONITOR!
-  # namespaceSelector:
-  #   matchNames: 
-  #   - default
+  namespaceSelector:
+    matchNames: 
+    - default
   endpoints:
   - port: http
     path: /actuator/prometheus
