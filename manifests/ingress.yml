@@ -24,3 +24,15 @@ spec:
               name: spanish-greeter-service 
               port:
                 number: 80 # standard http port
+
+        - path: /p(.+)
+          pathType: Prefix
+          backend:
+            service:
+              name: prometheus-kube-prometheus-prometheus
+              port:
+                number: 80 # standard http port
+
+
+
+                
