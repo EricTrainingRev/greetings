@@ -4,7 +4,7 @@ metadata:
   name: "english-greeter-service"
   namespace: "default"
   labels:
-    app: "english-greeter"
+    service: "english-greeter"
 spec:
   ports:
   - protocol: "TCP"
@@ -26,7 +26,7 @@ spec:
   jobLabel: english-app
   selector:
     matchLabels:
-      app: english-greeter #THIS IS LOOKING AT THE SERVICE, IT'S A SERVICE MONITOR!
+      service: english-greeter #THIS IS LOOKING AT THE SERVICE, IT'S A SERVICE MONITOR!
   namespaceSelector:
     matchNames: 
     - default
