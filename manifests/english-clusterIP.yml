@@ -4,7 +4,7 @@ metadata:
   name: "english-greeter-service"
   namespace: "default"
   labels:
-    service: "english-greeter"
+    app: "english-greeter"
 spec:
   ports:
   - protocol: "TCP"
@@ -27,10 +27,10 @@ spec:
   jobLabel: english-app
   selector:
     matchLabels: 
-      service: english-greeter #THIS IS LOOKING AT THE SERVICE, IT'S A SERVICE MONITOR!
-  namespaceSelector:
-    matchNames: 
-    - default
+      app: english-greeter #THIS IS LOOKING AT THE SERVICE, IT'S A SERVICE MONITOR!
+  # namespaceSelector:
+  #   matchNames: 
+  #   - default
   endpoints:
   - port: http
     path: /actuator/prometheus
