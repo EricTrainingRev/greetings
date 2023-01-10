@@ -17,13 +17,13 @@ spec:
               name: english-greeter-service
               port:
                 number: 80 # standard http port
-        - path: /spanish(.+)
-          pathType: Prefix
-          backend:
-            service:
-              name: spanish-greeter-service 
-              port:
-                number: 80 # standard http port
+        # - path: /spanish(.+)
+        #   pathType: Prefix
+        #   backend:
+        #     service:
+        #       name: spanish-greeter-service 
+        #       port:
+        #         number: 80 # standard http port
 
 
 
